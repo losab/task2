@@ -110,28 +110,19 @@ Straight angle: A 180 degree angle.
 
 
 */
-let studentArr = [
-    { name: "student1", grade: 91 },
-    { name: "student2", grade: 71 },
-    { name: "student3", grade: 45 },
-  ];
-  
-  function finalResult(a) {
-    for (let student of studentArr) {
-    if (studentArr.grade>=81) {
-        console.log('A');
-    } else if (studentArr.grade>=71) {
-        console.log('B');
-    } else if (studentArr.grade>=61) {
-        console.log('C');
-    } else if (studentArr.grade>=51) {
-        console.log('D');
-    } else if (studentArr.grade<51) {
-        console.log('E');
+    let student = [{name: 'student1', grade : 91}, {name: 'student2', grade : 71}, {name: 'student3', grade : 45}];
+    function checkStudentGrade(studentArray){
+     for(let student of studentArray){
+         let grade = student.grade;
+         let finalResult = '';
+         if (grade >= 0 && grade < 51) finalResult = 'F';
+         else if (grade >= 51 && grade < 61) finalResult = 'E';
+         else if (grade >= 61 && grade < 70) finalResult = 'D';
+         else if (grade >= 71 && grade < 80) finalResult = 'C';
+         else if (grade >- 81 && grade < 100) finalResult = 'A';
+         student.finalResult = finalResult;
+     }
+     return studentArray;
     }
-  }
-  return studentArr
-}
 
-studentArr = finalResult(studentArr)
-console.log(studentArr)
+    console.log(checkStudentGrade(student));
